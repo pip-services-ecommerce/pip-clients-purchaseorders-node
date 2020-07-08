@@ -1,0 +1,28 @@
+{
+    "name": "pip-clients-purchaseorders-node",
+    "version": "1.0.0",
+    "main": "./obj/src/index.js",
+    "typings": "./obj/src/index.d.ts",
+    "scripts": {
+        "build": "tsc",
+        "watch": "tsc --watch",
+        "test": "mocha -t 10000 -R spec -u tdd --recursive ./obj/test",
+        "retest": "tsc && mocha -t 10000 -R spec -u tdd --recursive ./obj/test"
+    },
+    "dependencies": {
+        "pip-services-purchaseorders-node": "git+https://github.com/pip-services-ecommerce/pip-services-purchaseorders-node.git",
+        "pip-services3-commons-node": "^3.0.0",
+        "pip-services3-components-node": "^3.0.0",
+        "pip-services3-rpc-node": "^3.0.0"
+    },
+    "devDependencies": {
+        "@types/async": "^2.0.0",
+        "@types/chai": "*",
+        "@types/lodash": "^4.0.0",
+        "@types/mocha": "*",
+        "@types/node": "*",
+        "chai": "*",
+        "mocha": "*",
+        "restify": "^4.3.0"
+    }
+}
