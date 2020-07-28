@@ -13,6 +13,7 @@ export class PurchaseOrderV1Schema extends ObjectSchema {
         this.withOptionalProperty('state', TypeCode.String);
         this.withOptionalProperty('state_details', TypeCode.String);
         this.withRequiredProperty('currency_code', TypeCode.String);
+        this.withOptionalProperty('retries', TypeCode.Integer);
 
         this.withOptionalProperty('create_time', TypeCode.DateTime);
         this.withOptionalProperty('update_time', TypeCode.DateTime);

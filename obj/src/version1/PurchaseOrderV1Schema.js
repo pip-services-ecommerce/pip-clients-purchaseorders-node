@@ -14,6 +14,7 @@ class PurchaseOrderV1Schema extends pip_services3_commons_node_1.ObjectSchema {
         this.withOptionalProperty('state', pip_services3_commons_node_3.TypeCode.String);
         this.withOptionalProperty('state_details', pip_services3_commons_node_3.TypeCode.String);
         this.withRequiredProperty('currency_code', pip_services3_commons_node_3.TypeCode.String);
+        this.withOptionalProperty('retries', pip_services3_commons_node_3.TypeCode.Integer);
         this.withOptionalProperty('create_time', pip_services3_commons_node_3.TypeCode.DateTime);
         this.withOptionalProperty('update_time', pip_services3_commons_node_3.TypeCode.DateTime);
         this.withOptionalProperty('paid_time', pip_services3_commons_node_3.TypeCode.DateTime);
