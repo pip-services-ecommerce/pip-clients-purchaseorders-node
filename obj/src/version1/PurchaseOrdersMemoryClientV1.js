@@ -4,6 +4,8 @@ let _ = require('lodash');
 const pip_services3_commons_node_1 = require("pip-services3-commons-node");
 const pip_services3_commons_node_2 = require("pip-services3-commons-node");
 const pip_services3_commons_node_3 = require("pip-services3-commons-node");
+const pip_services3_commons_node_4 = require("pip-services3-commons-node");
+const pip_services3_commons_node_5 = require("pip-services3-commons-node");
 class PurchaseOrdersMemoryClientV1 {
     constructor(...orders) {
         this._maxPageSize = 100;
@@ -14,7 +16,7 @@ class PurchaseOrdersMemoryClientV1 {
         let filterCurl = this.composeFilter(filter);
         let orders = _.filter(this._orders, filterCurl);
         // Extract a page
-        paging = paging != null ? paging : new pip_services3_commons_node_2.PagingParams();
+        paging = paging != null ? paging : new pip_services3_commons_node_4.PagingParams();
         let skip = paging.getSkip(-1);
         let take = paging.getTake(this._maxPageSize);
         let total = null;
@@ -23,7 +25,7 @@ class PurchaseOrdersMemoryClientV1 {
         if (skip > 0)
             orders = _.slice(orders, skip);
         orders = _.take(orders, take);
-        let page = new pip_services3_commons_node_3.DataPage(orders, total);
+        let page = new pip_services3_commons_node_5.DataPage(orders, total);
         if (callback)
             callback(null, page);
     }
@@ -41,7 +43,7 @@ class PurchaseOrdersMemoryClientV1 {
         }
         let oldOrders = this._orders.filter(x => x.id == order.id);
         if (oldOrders.length) {
-            let err = new pip_services3_commons_node_1.BadRequestException(correlationId, "ORDER_ALREADY_EXIST", "order " + order.id + " already exists");
+            let err = new pip_services3_commons_node_2.BadRequestException(correlationId, "ORDER_ALREADY_EXIST", "order " + order.id + " already exists");
             callback(err, null);
             return;
         }
@@ -74,7 +76,7 @@ class PurchaseOrdersMemoryClientV1 {
             callback(null, item);
     }
     composeFilter(filter) {
-        filter = filter || new pip_services3_commons_node_1.FilterParams();
+        filter = filter || new pip_services3_commons_node_3.FilterParams();
         let id = filter.getAsNullableString('id');
         let state = filter.getAsNullableString('state');
         let customerId = filter.getAsNullableString('customer_id');
